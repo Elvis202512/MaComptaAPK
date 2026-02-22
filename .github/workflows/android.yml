@@ -13,17 +13,6 @@ jobs:
           sudo apt-get install -y build-essential libffi-dev python3-dev \
           libssl-dev git zip unzip openjdk-17-jdk zlib1g-dev \
           autoconf libtool pkg-config libncurses5-dev libncursesw5-dev \
-          libtinfo5 cmake libsqlite3-dev
+          libtinfo6 cmake libsqlite3-dev
           pip install --upgrade pip
           pip install Cython==0.29.33 buildozer
-
-      - name: Build with Buildozer
-        run: |
-          # On accepte automatiquement toutes les licences Android
-          yes | buildozer android debug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: MonApplication-APK
-          path: bin/*.apk
