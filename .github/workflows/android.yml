@@ -8,9 +8,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        uses: kivy/buildozer-action@master
+        # Changement ici pour pointer vers l'action stable
+        uses: Niklas-dev/buildozer-action@v1.2
         with:
-          save_buildozer_cache: true
           buildozer_version: master
           command: buildozer android debug
 
