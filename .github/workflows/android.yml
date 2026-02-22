@@ -16,9 +16,11 @@ jobs:
           libtinfo6 cmake libsqlite3-dev
           pip install --upgrade pip
           pip install Cython==0.29.33 buildozer
-          # Cette ligne lance la création de l'APK
+          # On crée le dossier des licences pour éviter le refus du SDK
+          mkdir -p ~/.android && touch ~/.android/repositories.cfg
+          # On lance le build en mode debug
           buildozer android debug
-
+          
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
