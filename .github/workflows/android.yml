@@ -8,11 +8,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        uses: ArtemSerebriakov/buildozer-action@v1
+        uses: kivy/buildozer-action@master
         with:
+          save_buildozer_cache: true
           buildozer_version: master
           command: buildozer android debug
-          repository_libs: ""
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
